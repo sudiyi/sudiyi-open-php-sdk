@@ -37,8 +37,8 @@ class Api
         $partner_key = trim($partner_key);
         $this->version = trim($version);
 
-        if (empty($partner_id))
-            throw new SdyException("partner_id is empty");
+        if (! preg_match('/^\d{2,5}$/i', $partner_id))
+            throw new SdyException("partner_id is invaild");
 
         if (empty($partner_key))
             throw new SdyException("partner_key is empty");

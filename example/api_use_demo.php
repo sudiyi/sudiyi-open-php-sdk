@@ -14,7 +14,20 @@ use Sudiyi\Open\Core\SdyException;
  */
 $partner_id = '<您从速递易开放平台获得的 PartnerId>';
 $partner_key = '<您从速递易开放平台获得的 PartnerKey>';
+
+/* 尝试从环境变量中获取配置 */
+if (intval($partner_id) == 0) {
+    $partner_id = getenv('SDY_PARTNER_ID');
+    $partner_key = getenv('SDY_PARTNER_KEY');
+}
+
+/* 初始化 Api 实例 */
 $sdyObj = new Api($partner_id, $partner_key);
+
+/* 修改测试服务器 Host (如果有配置) */
+$test_host = getenv('SDY_TEST_HOST');
+$test_host && $sdyObj->client->host = $test_host;
+
 
 $area_id = 510109;
 $device_id = 1000149;
@@ -50,7 +63,7 @@ try {
     var_dump($result);
 
     // 查询订单当前的详细状态
-    $result=$sdyObj->getResvStatus($resv_order_no);
+    $result = $sdyObj->getResvStatus($resv_order_no);
     echo "查询订单当前的详细状态: \n";
     var_dump($result);
 
@@ -82,12 +95,12 @@ try {
     var_dump($result);
 
     // 获取死信
-    $result=$sdyObj->getDeadLetter();
+    $result = $sdyObj->getDeadLetter();
     echo "获取死信: \n";
     var_dump($result);
 
     // 获取附近设备
-    $result=$sdyObj->getClosest($lat, $lng);
+    $result = $sdyObj->getClosest($lat, $lng);
     echo "获取附近设备: \n";
     var_dump($result);
 
