@@ -66,8 +66,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     
     public function testGetArea()
     {
-        $result = $this->api->getArea();
-        $this->assertEquals('array', gettype($result));
+        $this->api->getArea();
     }
     
     public function testGetLattice()
