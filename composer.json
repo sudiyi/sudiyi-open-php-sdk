@@ -1,0 +1,27 @@
+{
+    "name": "sudiyi/sudiyi-open-php-sdk",
+    "description": "Sudiyi Open Platform SDK for PHP",
+    "homepage": "http://open.sudiyi.cn/",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sudiyi",
+            "homepage": "http://open.sudiyi.cn/"
+        }
+    ],
+    "require": {
+        "php":">=5.3"
+    },
+
+    "require-dev" : {
+        "phpunit/phpunit": "*",
+        "satooshi/php-coveralls": "*"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Sudiyi\\Open\\": "src/"
+        }
+    }
+}
