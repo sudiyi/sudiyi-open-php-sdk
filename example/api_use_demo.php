@@ -12,8 +12,8 @@ use Sudiyi\Open\Core\SdyException;
  * 合作商家号、合作商家密匙（开户邮件中可查看）
  * 本 Demo 使用速递易开放平台测试环境 (via setting $sdyObj->client->host.)
  */
-$partner_id = '';
-$partner_key = '';
+$partner_id = '<您从速递易开放平台获得的 PartnerId>';
+$partner_key = '<您从速递易开放平台获得的 PartnerKey>';
 $sdyObj = new Api($partner_id, $partner_key);
 
 $area_id = 510109;
@@ -25,15 +25,15 @@ $data = array(
     'device_id'         => $device_id,                      // 速递易设备ID
     'box_type'          => 2,                               // 箱格类型 0:大箱 1:中箱 2:小箱 3:冰箱
     'notify_url'        => 'http://your.url/to/notify.php', // 回调第三方系统的地址
-    'auto_upgd'         => true,                            //选填，是否可以自动升箱
-    'sender_name'       => 'Stefans',                       //选填，投递人姓名
-    'sender_mobile'     => '18612345678',                   //选填，投递人手机
+    'auto_upgd'         => true,                            // 选填，是否可以自动升箱
+    'sender_name'       => 'Stefans',                       // 选填，投递人姓名
+    'sender_mobile'     => '18612345678',                   // 选填，投递人手机
     'order_no'          => '2015000001',                    // 第三方订单号,即自己平台的订单号
     'consignee_name'    => 'demon',                         // 收货人姓名
     'consignee_mobile'  => '15887654321',                   // 收货人手机号
-    'payment'           => 0,                               //选填，到付金额，如果不是到付件则为0
-    'pay_type'          => 0,                               //选填，超期付费方式 0:快递柜付费 1:从商户账户扣除
-    'duration'          => 60                               //选填，预约时长，单位分钟，默认240分钟
+    'payment'           => 0,                               // 选填，到付金额，如果不是到付件则为0
+    'pay_type'          => 0,                               // 选填，超期付费方式 0:快递柜付费 1:从商户账户扣除
+    'duration'          => 60                               // 选填，预约时长，单位分钟，默认240分钟
 );
 
 try {
@@ -44,7 +44,7 @@ try {
 
     $resv_order_no = $result['resv_order_no'];
 
-    // 预约速递易箱格
+    // 查询预约状态
     $result = $sdyObj->getResv($resv_order_no);
     echo "查询预约状态: \n";
     var_dump($result);
