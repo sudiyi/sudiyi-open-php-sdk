@@ -7,3 +7,4 @@ output
 coverage/
 coverage.xml
 *.local.php
+.env
