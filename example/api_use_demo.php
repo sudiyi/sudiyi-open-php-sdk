@@ -68,12 +68,15 @@ try {
     var_dump($result);
 
     // 取消预约箱格
-    /*
+    
     $result = $sdyObj->cancelResv($resv_order_no);
     echo "取消预约箱格: \n";
-    var_dump($result);
-    */
-
+    if ($result == null)
+        echo"此次预约已不能取消 \n";
+    else
+        var_dump($result);
+        
+    
     // 获取速递易的行政区域,查出来成都市的id为:510100,成都市高新区的id为：510109,其他城市根据自己需要来
     $result = $sdyObj->getArea();
     echo "获取行政区域: \n";

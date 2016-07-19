@@ -57,14 +57,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('consignee_mobile', $result);
     }
 
-    /** @noinspection PhpUndefinedNamespaceInspection */
-    /** @noinspection PhpUndefinedClassInspection */
-    /**
-     * @expectedException Sudiyi\Open\Core\SdyException
-     */
+
     public function testCancelResv()
     {
-        $this->api->cancelResv($this->resv_order_no);
+        $result = $this->api->cancelResv($this->resv_order_no);
+        $this->assertNull($result);
     }
     
     public function testGetArea()

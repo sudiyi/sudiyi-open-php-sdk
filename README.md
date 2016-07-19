@@ -98,9 +98,11 @@ var_dump($result);
 
 更多接口的调用方式，请参见 example 或参看[官方文档](http://opendoc.sudiyi.cn/api.html)。
 
-### 返回结果处理
+### 返回结果
 
-所有接口默认返回一个 Array 对象，若请求出错或返回的数据为空，SDK 会抛出一个 SdyException 异常。
+ - GET、POST 类接口, 默认返回一个 Array 对象
+ - PUT、DELETE 类接口, 若操作成功, 返回 Array 对象, 操作失败, 返回 NULL 或 Array
+ - 请求错误, 抛出 SdyException 异常
 
 ```
 预约成功: 

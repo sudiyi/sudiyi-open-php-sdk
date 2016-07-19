@@ -84,7 +84,7 @@ class Http
         $info = curl_getinfo($ch);
         curl_close($ch);
 
-        if ($info['http_code'] == 200 && $response) {
+        if (in_array($info['http_code'], [200, 204])) {
 
             return json_decode($response, true);
 
